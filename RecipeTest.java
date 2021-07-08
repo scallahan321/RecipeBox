@@ -42,6 +42,8 @@ public class RecipeTest {
     	// Print details of both recipes
     	myFirstRecipe.printRecipe();
     	mySecondRecipe.printRecipe();
+
+		Recipe.createNewRecipe();
 	}
     
 }

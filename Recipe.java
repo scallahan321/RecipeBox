@@ -48,7 +48,7 @@ public class Recipe {
         this.recipeIngredients = recipeIngredients;
     }
      
-    public ArrayList getRecipeIngredients(){
+    public ArrayList<Ingredient> getRecipeIngredients(){
         return this.recipeIngredients;
     }
     
@@ -94,7 +94,7 @@ public class Recipe {
     }
     
     
-    public Recipe createNewRecipe() {
+    public static Recipe createNewRecipe() {
         double totalRecipeCalories = 0;
         ArrayList <Ingredient> recipeIngredients = new ArrayList <Ingredient>();
         boolean addMoreIngredients = true;
@@ -117,18 +117,21 @@ public class Recipe {
             if (ingredientName.toLowerCase().equals("end")) {
                 addMoreIngredients = false;
             } else {
-
-            recipeIngredients.add(ingredientName);
+            
+            Ingredient ingredient1 = new Ingredient();
+            ingredient1.setNameOfIngredient(ingredientName);
+            recipeIngredients.add(ingredient1);
             
         
                 System.out.println("Please enter the ingredient amount: ");
                 float ingredientAmount = scnr.nextFloat();
-                
+                ingredient1.setIngredientAmount(ingredientAmount);
             
                 System.out.println("Please enter the ingredient Calories: ");
                 int ingredientCalories = scnr.nextInt();
                 
                 totalRecipeCalories += ingredientCalories;
+                ingredient1.setTotalCalories(totalRecipeCalories);
                 
               
             
