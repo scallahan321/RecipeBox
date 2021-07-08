@@ -19,6 +19,8 @@ public class Recipe {
      public int servings = 0;
     
      public ArrayList<Ingredient> recipeIngredients = new ArrayList<Ingredient>();
+
+     public ArrayList<String> recipeInstructions = new ArrayList<String>();
     
      public double totalRecipeCalories = 0;
     
@@ -53,6 +55,15 @@ public class Recipe {
     public double getTotalRecipeCalories(){
         return this.totalRecipeCalories;
     }
+
+    	//b. create an additional list or ArrayList that allow users to 
+  		//insert step-by-step recipe instructions
+    public void setRecipeInstructions(ArrayList<String> Instructions){
+            this.recipeInstructions = Instructions;
+    }
+    public ArrayList<String> getRecipeInstructions() {
+        return this.recipeInstructions;
+    }
     
     public Recipe() {
         this.recipeName = "";
@@ -81,15 +92,23 @@ public class Recipe {
             System.out.println(recipeIngredients.get(i).getNameOfIngredient());
             System.out.println(recipeIngredients.get(i).getIngredientAmount()+ " " + recipeIngredients.get(i).getUnitMeasurement());
         }
-        System.out.println(singleServingCalories);       
+        System.out.println(singleServingCalories);  
+        
+        System.out.println("Instructions:");
+        for (int y = 0; y<recipeInstructions.size();++y){
+            System.out.println(recipeInstructions.get(y));
+        }
     }
        
     public static Recipe createNewRecipe() {
         double totalRecipeCalories = 0;
         ArrayList <Ingredient> recipeIngredients = new ArrayList <Ingredient>();
         boolean addMoreIngredients = true;
+        boolean addMoreInstructions = true;
+        ArrayList<String> recipeInstructions = new ArrayList<String>();
         
         Scanner scnr = new Scanner(System.in);
+        scnr.useDelimiter("\n");
         
         System.out.println("Please enter the recipe name: ");
         String recipeName = scnr.nextLine();
@@ -115,23 +134,33 @@ public class Recipe {
             String unitOfMeasurement = scnr.next();
             ingredient1.setUnitMeasurement(unitOfMeasurement);
 
-
             recipeIngredients.add(ingredient1);
-            
-        
-                //System.out.println("Please enter the ingredient amount: ");
-                //float amount = scnr.nextFloat();
-                //ingredient1.setIngredientAmount(amount);
-            
+                       
                 System.out.println("Please enter the ingredient Calories: ");
                 int ingredientCalories = scnr.nextInt();
                 
                 totalRecipeCalories += ingredientCalories;           
             }
            
-       } while (addMoreIngredients) ;
+       } while (addMoreIngredients);
         
         Recipe recipe1 = new Recipe(recipeName, servings, recipeIngredients, totalRecipeCalories);
+
+        do {
+            System.out.println("Enter an instruction or type end if you are finished");
+            String instruction = scnr.next();
+
+            if (instruction.toLowerCase().equals("end")){
+                addMoreInstructions = false;
+            }
+            else {
+                recipeInstructions.add(instruction);
+            }
+
+        } while (addMoreInstructions);
+
+        recipe1.setRecipeInstructions(recipeInstructions);
+
         recipe1.printRecipe();
         
         return recipe1;
