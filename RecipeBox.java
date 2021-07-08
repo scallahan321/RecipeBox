@@ -4,21 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RecipeBox {
-	
-	/**
-	 * Declare instance variables:
-	 * a private ArrayList of the type SteppingStone5_Recipe named listOfRecipes
-	 * 
-	 */
+
     
      private ArrayList<Recipe> listOfRecipes = new ArrayList<Recipe>();
 
 
 
-	/**
-	 * Add accessor and mutator for listOfRecipes
-	 * 
-	 */
+	
 
      public void setListOfRecipes(ArrayList<Recipe> listOfRecipes){
 			this.listOfRecipes = listOfRecipes;
@@ -28,10 +20,7 @@ public class RecipeBox {
 		 return this.listOfRecipes;
 	 }
 
-     /**
-	 * Add constructors for the SteppingStone6_RecipeBox()
-	 * 
-	 */
+    
     public RecipeBox(){
         this.listOfRecipes = new ArrayList<Recipe>();
     }
@@ -40,6 +29,7 @@ public class RecipeBox {
         this.listOfRecipes = listOfRecipes;
     }
 
+	
 	/**
 	 * Add the following custom methods:
 	 * 
@@ -62,8 +52,7 @@ public class RecipeBox {
             if (listOfRecipes.get(i).getRecipeName()==selectedRecipe){
                 listOfRecipes.get(i).printRecipe();
             }
-        }
-        
+        } 
      }
 	
      public void printAllRecipeNames(){
@@ -72,6 +61,9 @@ public class RecipeBox {
             }
      }
 	
+	 public void addNewRecipe(){
+		listOfRecipes.add(Recipe.createNewRecipe());
+	}
 	/**
 	* A variation of following menu method should be used as the actual main 
 	*		once you are ready to submit your final application.  For this 
