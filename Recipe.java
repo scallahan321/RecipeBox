@@ -87,7 +87,7 @@ public class Recipe {
         System.out.println("Serves: "+ servings);
         int i;
         for (i=0; i<recipeIngredients.size();++i){
-            System.out.println(recipeIngredients.get(i));
+            System.out.println(recipeIngredients.get(i).getNameOfIngredient());
         }
         System.out.println(singleServingCalories);
        
@@ -131,7 +131,7 @@ public class Recipe {
                 int ingredientCalories = scnr.nextInt();
                 
                 totalRecipeCalories += ingredientCalories;
-                ingredient1.setTotalCalories(totalRecipeCalories);
+                
                 
               
             
