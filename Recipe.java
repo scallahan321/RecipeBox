@@ -9,7 +9,6 @@
  * @author 1849422_snhu
  */
 
-
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -17,17 +16,12 @@ public class Recipe {
     
     private String recipeName;
     
-   
      public int servings = 0;
     
      public ArrayList<Ingredient> recipeIngredients = new ArrayList<Ingredient>();
     
      public double totalRecipeCalories = 0;
-    /**
-     * Add mutators and accessors for the class variable.
-     * 
-     */
-     
+    
      public void setRecipeName (String recipeName){
          this.recipeName = recipeName;
      }
@@ -69,7 +63,6 @@ public class Recipe {
     }
     public Recipe(String recipeName, int servings, 
     	ArrayList<Ingredient> recipeIngredients, double totalRecipeCalories) 
-    //<-- use appropriate data type for the ArrayList and the servings arguments
     {
         this.recipeName = recipeName;
         this.servings = servings;
@@ -77,23 +70,20 @@ public class Recipe {
         this.totalRecipeCalories = totalRecipeCalories;
     }
     
-    public void printRecipe() {
-        
+    public void printRecipe() {      
        
         int singleServingCalories = (int)totalRecipeCalories / servings;
-         
-          
+                  
         System.out.println("Recipe: " + recipeName);
         System.out.println("Serves: "+ servings);
         int i;
         for (i=0; i<recipeIngredients.size();++i){
             System.out.println(recipeIngredients.get(i).getNameOfIngredient());
+            System.out.println(recipeIngredients.get(i).getIngredientAmount()+ " " + recipeIngredients.get(i).getUnitMeasurement());
         }
-        System.out.println(singleServingCalories);
-       
+        System.out.println(singleServingCalories);       
     }
-    
-    
+       
     public static Recipe createNewRecipe() {
         double totalRecipeCalories = 0;
         ArrayList <Ingredient> recipeIngredients = new ArrayList <Ingredient>();
@@ -104,37 +94,39 @@ public class Recipe {
         System.out.println("Please enter the recipe name: ");
         String recipeName = scnr.nextLine();
         
-        System.out.println("Please enter the number of servings: ");
-        
+        System.out.println("Please enter the number of servings: ");       
         int servings = scnr.nextInt(); 
-        
-        
-        
-                
+                        
         do {
             System.out.println("Please enter the ingredient name or type end if you are finished entering ingredients: ");
             String ingredientName = scnr.next();
+          
             if (ingredientName.toLowerCase().equals("end")) {
                 addMoreIngredients = false;
-            } else {
-            
+            } else {         
             Ingredient ingredient1 = new Ingredient();
             ingredient1.setNameOfIngredient(ingredientName);
+            
+            System.out.println("Enter the amount of the ingredient");
+            float ingredientAmount = scnr.nextFloat();
+            ingredient1.setIngredientAmount(ingredientAmount);
+
+            System.out.println("Enter the unit of measurement");
+            String unitOfMeasurement = scnr.next();
+            ingredient1.setUnitMeasurement(unitOfMeasurement);
+
+
             recipeIngredients.add(ingredient1);
             
         
-                System.out.println("Please enter the ingredient amount: ");
-                float ingredientAmount = scnr.nextFloat();
-                ingredient1.setIngredientAmount(ingredientAmount);
+                //System.out.println("Please enter the ingredient amount: ");
+                //float amount = scnr.nextFloat();
+                //ingredient1.setIngredientAmount(amount);
             
                 System.out.println("Please enter the ingredient Calories: ");
                 int ingredientCalories = scnr.nextInt();
                 
-                totalRecipeCalories += ingredientCalories;
-                
-                
-              
-            
+                totalRecipeCalories += ingredientCalories;           
             }
            
        } while (addMoreIngredients) ;

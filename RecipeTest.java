@@ -43,6 +43,8 @@ public class RecipeTest {
     	myFirstRecipe.printRecipe();
     	mySecondRecipe.printRecipe();
 
+
+		// test createNewRecipe method from Recipe class
 		Recipe.createNewRecipe();
 	}
     
