@@ -76,6 +76,7 @@ public class Ingredient {
     Ingredient ing1 = new Ingredient();
        
     Scanner scnr = new Scanner(System.in);
+    scnr.useDelimiter("\n");
     
     // Prompt user for ingredient name
     System.out.println("Please enter the name of the ingredient");

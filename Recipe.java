@@ -60,19 +60,20 @@ public class Recipe {
   		//insert step-by-step recipe instructions
     public void setRecipeInstructions(){
            //ArrayList<String> recipeInstructions = new ArrayList<String>();
+            System.out.println("testing testing testing");
             boolean addMoreInstructions = true;
             Scanner scanner = new Scanner(System.in);
             scanner.useDelimiter("\n");
             do {
-            System.out.println("Enter an instruction or type end if you are finished");
-            String instruction = scanner.next();
+                System.out.println("Enter an instruction or type end if you are finished");
+                String instruction = scanner.next();
 
-            if (instruction.toLowerCase().equals("end")){
-                addMoreInstructions = false;
-            }
-            else {
-                recipeInstructions.add(instruction);
-            }
+                 if (instruction.toLowerCase().equals("end")){
+                    addMoreInstructions = false;
+                    }
+                else {
+                    recipeInstructions.add(instruction);
+                 }
 
          } while (addMoreInstructions);
     }
