@@ -1,13 +1,5 @@
 import java.util.ArrayList;
 
-
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 public class RecipeTest {
 
 	/**
@@ -16,6 +8,7 @@ public class RecipeTest {
      
 	public static void main(String[] args) {
 		// Create two recipe objects first
+		
 		Recipe myFirstRecipe = new Recipe();
 		ArrayList<Ingredient> recipeIngredients = new ArrayList<Ingredient>(); 
 		ArrayList<Ingredient> recipeIngredientsTwo = new ArrayList<Ingredient>(); 
@@ -24,8 +17,6 @@ public class RecipeTest {
         tempIngredient.setNameOfIngredient(ingredientName);
 		recipeIngredients.add(tempIngredient);
       
-    	
-   	 
     	// Initialize first recipe
 		String ingredientNameTwo = "Noodles";
 		Ingredient tempIngredientTwo = new Ingredient();

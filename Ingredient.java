@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Ingredient {
  
       // Declare the variables that each ingredient has
-      String nameOfIngredient;
+       String nameOfIngredient;
        float ingredientAmount;
        int numberCaloriesPerCup;
        double totalCalories;
@@ -17,7 +17,6 @@ public class Ingredient {
            this.totalCalories = 0.0;
        }
       
- 
        //Method to return the ingredient name
        public String getNameOfIngredient(){
             return this.nameOfIngredient;
@@ -28,7 +27,7 @@ public class Ingredient {
             this.nameOfIngredient = ingredient;
            }
      
-           //Method to return ingredient amount
+        //Method to return ingredient amount
        public float getIngredientAmount(){
             return this.ingredientAmount;
        }

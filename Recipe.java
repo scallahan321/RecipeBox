@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author 1849422_snhu
@@ -14,6 +8,7 @@ import java.util.ArrayList;
 
 public class Recipe {
     
+    //declare Recipe variables
     private String recipeName;
     
      public int servings = 0;
@@ -24,6 +19,7 @@ public class Recipe {
     
      public double totalRecipeCalories = 0;
     
+     //accessor and mutator methods for Recipe object
      public void setRecipeName (String recipeName){
          this.recipeName = recipeName;
      }
@@ -55,15 +51,13 @@ public class Recipe {
     public double getTotalRecipeCalories(){
         return this.totalRecipeCalories;
     }
-
-    	//b. create an additional list or ArrayList that allow users to 
-  		//insert step-by-step recipe instructions
+    
+    // custom method for prompting user to enter instructions for recipe
     public void setRecipeInstructions(){
-           //ArrayList<String> recipeInstructions = new ArrayList<String>();
-            System.out.println("testing testing testing");
             boolean addMoreInstructions = true;
             Scanner scanner = new Scanner(System.in);
             scanner.useDelimiter("\n");
+            
             do {
                 System.out.println("Enter an instruction or type end if you are finished");
                 String instruction = scanner.next();
@@ -77,16 +71,18 @@ public class Recipe {
 
          } while (addMoreInstructions);
     }
+    //this method returns the recipe instructions
     public ArrayList<String> getRecipeInstructions() {
         return this.recipeInstructions;
     }
-    
+    //plain constructor
     public Recipe() {
         this.recipeName = "";
         this.servings = 0; //<--- assignment value with appropriate data type
         this.recipeIngredients = new ArrayList<Ingredient>(); //<-- assignment value for empty ArrayList
         this.totalRecipeCalories = 0;
         
+    //constructor that takes variable arguments
     }
     public Recipe(String recipeName, int servings, 
     	ArrayList<Ingredient> recipeIngredients, double totalRecipeCalories) 
@@ -97,18 +93,21 @@ public class Recipe {
         this.totalRecipeCalories = totalRecipeCalories;
     }
     
+    //method to print all recipe details
     public void printRecipe() {      
        
         int singleServingCalories = (int)totalRecipeCalories / servings;
                   
         System.out.println("Recipe: " + recipeName);
         System.out.println("Serves: "+ servings);
+       
         int i;
         for (i=0; i<recipeIngredients.size();++i){
             System.out.println(recipeIngredients.get(i).getNameOfIngredient());
             System.out.println(recipeIngredients.get(i).getIngredientAmount()+ " " + recipeIngredients.get(i).getUnitMeasurement());
         }
         System.out.println(singleServingCalories);  
+        
         if (recipeInstructions.isEmpty()==false){
             System.out.println("Instructions:");
             for (int y = 0; y<recipeInstructions.size();++y){
@@ -116,14 +115,13 @@ public class Recipe {
         }
     }
     }
-       
+    
+    //this is the method that will be accessed from RecipeBox to create a recipe
     public static Recipe createNewRecipe() {
         double totalRecipeCalories = 0;
         ArrayList <Ingredient> recipeIngredients = new ArrayList <Ingredient>();
         boolean addMoreIngredients = true;
-      //  boolean addMoreInstructions = true;
-       // ArrayList<String> recipeInstructions = new ArrayList<String>();
-        
+      
         Scanner scnr = new Scanner(System.in);
         scnr.useDelimiter("\n");
         
@@ -162,23 +160,6 @@ public class Recipe {
        } while (addMoreIngredients);
         
         Recipe recipe1 = new Recipe(recipeName, servings, recipeIngredients, totalRecipeCalories);
-
-        /**do {
-            System.out.println("Enter an instruction or type end if you are finished");
-            String instruction = scnr.next();
-
-            if (instruction.toLowerCase().equals("end")){
-                addMoreInstructions = false;
-            }
-            else {
-                recipeInstructions.add(instruction);
-            }
-
-         } while (addMoreInstructions);**/
-
-        //recipe1.setRecipeInstructions(recipeInstructions);
-
-        //recipe1.printRecipe();
         
         return recipe1;
     }
