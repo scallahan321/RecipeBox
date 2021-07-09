@@ -45,7 +45,10 @@ public class RecipeTest {
 
 
 		// test createNewRecipe method from Recipe class
-		Recipe.createNewRecipe();
+		Recipe myRecipe = Recipe.createNewRecipe();
+
+		myRecipe.setRecipeInstructions();
+		myRecipe.printRecipe();
 	}
     
 }

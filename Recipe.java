@@ -58,8 +58,23 @@ public class Recipe {
 
     	//b. create an additional list or ArrayList that allow users to 
   		//insert step-by-step recipe instructions
-    public void setRecipeInstructions(ArrayList<String> Instructions){
-            this.recipeInstructions = Instructions;
+    public void setRecipeInstructions(){
+           //ArrayList<String> recipeInstructions = new ArrayList<String>();
+            boolean addMoreInstructions = true;
+            Scanner scanner = new Scanner(System.in);
+            scanner.useDelimiter("\n");
+            do {
+            System.out.println("Enter an instruction or type end if you are finished");
+            String instruction = scanner.next();
+
+            if (instruction.toLowerCase().equals("end")){
+                addMoreInstructions = false;
+            }
+            else {
+                recipeInstructions.add(instruction);
+            }
+
+         } while (addMoreInstructions);
     }
     public ArrayList<String> getRecipeInstructions() {
         return this.recipeInstructions;
@@ -93,19 +108,20 @@ public class Recipe {
             System.out.println(recipeIngredients.get(i).getIngredientAmount()+ " " + recipeIngredients.get(i).getUnitMeasurement());
         }
         System.out.println(singleServingCalories);  
-        
-        System.out.println("Instructions:");
-        for (int y = 0; y<recipeInstructions.size();++y){
+        if (recipeInstructions.isEmpty()==false){
+            System.out.println("Instructions:");
+            for (int y = 0; y<recipeInstructions.size();++y){
             System.out.println(recipeInstructions.get(y));
         }
+    }
     }
        
     public static Recipe createNewRecipe() {
         double totalRecipeCalories = 0;
         ArrayList <Ingredient> recipeIngredients = new ArrayList <Ingredient>();
         boolean addMoreIngredients = true;
-        boolean addMoreInstructions = true;
-        ArrayList<String> recipeInstructions = new ArrayList<String>();
+      //  boolean addMoreInstructions = true;
+       // ArrayList<String> recipeInstructions = new ArrayList<String>();
         
         Scanner scnr = new Scanner(System.in);
         scnr.useDelimiter("\n");
@@ -146,7 +162,7 @@ public class Recipe {
         
         Recipe recipe1 = new Recipe(recipeName, servings, recipeIngredients, totalRecipeCalories);
 
-        do {
+        /**do {
             System.out.println("Enter an instruction or type end if you are finished");
             String instruction = scnr.next();
 
@@ -157,9 +173,9 @@ public class Recipe {
                 recipeInstructions.add(instruction);
             }
 
-        } while (addMoreInstructions);
+         } while (addMoreInstructions);**/
 
-        recipe1.setRecipeInstructions(recipeInstructions);
+        //recipe1.setRecipeInstructions(recipeInstructions);
 
         //recipe1.printRecipe();
         

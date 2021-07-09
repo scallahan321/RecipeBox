@@ -108,7 +108,8 @@ public class RecipeBox {
 			*/
 			
 			if (input == 1) {
-                Recipe newRecipe1 = new Recipe();
+                //Recipe newRecipe1 = new Recipe();
+				Recipe.createNewRecipe();
             } else if (input == 2) {
                 System.out.println("Which recipe?\n");
                 String selectedRecipeName = menuScnr.next();
@@ -149,7 +150,7 @@ public class RecipeBox {
 			*
 			*/
 			
-			System.out.println("Menu\n" + "1. Add Recipe\n" + "2. Print All Recipe Details\n" + "3. Print All Recipe Names\n" + "\nPlease select a menu item:");
+			//System.out.println("Menu\n" + "1. Add Recipe\n" + "2. Print All Recipe Details\n" + "3. Print All Recipe Names\n" + "\nPlease select a menu item:");
 		}
 		
         
