@@ -17,51 +17,91 @@ public class Ingredient {
            this.totalCalories = 0.0;
        }
       
+       
+       /** 
+        * @return String
+        */
        //Method to return the ingredient name
        public String getNameOfIngredient(){
             return this.nameOfIngredient;
         }
       
+        
+        /** 
+         * @param ingredient
+         */
         //Method to set ingredient name
        public void setNameOfIngredient(String ingredient){
             this.nameOfIngredient = ingredient;
            }
      
+        
+        /** 
+         * @return float
+         */
         //Method to return ingredient amount
        public float getIngredientAmount(){
             return this.ingredientAmount;
        }
        
+       
+       /** 
+        * @param cups
+        */
        //Method to set ingredient amount
        public void setIngredientAmount(float cups){
            this.ingredientAmount = cups;
        }
        
+       
+       /** 
+        * @return int
+        */
        //Method to get number of calories per cup
        public int getNumberCaloriesPerCup(){
            return this.numberCaloriesPerCup;
        }
  
+       
+       /** 
+        * @param calories
+        */
        //Method to set number of calories per cup
        public void setNumberCaloriesPerCup(int calories){
            this.numberCaloriesPerCup = calories;
        }
  
+        
+        /** 
+         * @return double
+         */
         //Method to get total calories
        public double getTotalCalories(){
                return this.totalCalories;
        }
  
+       
+       /** 
+        * @param totalcals
+        */
        //Method to set total calories
        public void setTotalCalories(double totalcals){
            this.totalCalories = totalcals;
        }
  
+       
+       /** 
+        * @return String
+        */
        //Method to get unit of measurement
        public String getUnitMeasurement(){
            return this.unitMeasurement;
        }
  
+        
+        /** 
+         * @param unit
+         */
         //Method to set unit of measurement
        public void setUnitMeasurement(String unit){
            this.unitMeasurement = unit;
@@ -69,6 +109,10 @@ public class Ingredient {
     
 
     
+   
+   /** 
+    * @param args
+    */
    public static void main(String[] args) {
        
     //Create an ingredient object for testing. In the future this could be done dynmically via user input

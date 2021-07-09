@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 public class RecipeTest {
 
-	/**
- 	* @param args the command line arguments
- 	*/
-     
+	
+	/** 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// Create two recipe objects first
 		

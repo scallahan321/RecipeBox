@@ -1,8 +1,3 @@
-/**
- *
- * @author 1849422_snhu
- */
-
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -19,35 +14,67 @@ public class Recipe {
     
      public double totalRecipeCalories = 0;
     
+     
+     /** 
+      * @param recipeName
+      */
      //accessor and mutator methods for Recipe object
      public void setRecipeName (String recipeName){
          this.recipeName = recipeName;
      }
      
+     
+     /** 
+      * @return String
+      */
      public String getRecipeName() {
          return this.recipeName;
      }
      
+    
+    /** 
+     * @param servings
+     */
     public void setServings (int servings){
         this.servings = servings;
     }
     
+    
+    /** 
+     * @return int
+     */
     public int getServings(){
         return this.servings;
     }
      
+    
+    /** 
+     * @param recipeIngredients
+     */
     public void setRecipeIngredients(ArrayList<Ingredient> recipeIngredients){
         this.recipeIngredients = recipeIngredients;
     }
      
+    
+    /** 
+     * @return ArrayList<Ingredient>
+     */
     public ArrayList<Ingredient> getRecipeIngredients(){
         return this.recipeIngredients;
     }
     
+    
+    /** 
+     * @param totalRecipeCalories
+     */
     public void setTotalRecipeCalories(double totalRecipeCalories){
         this.totalRecipeCalories = totalRecipeCalories;
     }
     
+    
+    /** 
+     * @return double
+     */
     public double getTotalRecipeCalories(){
         return this.totalRecipeCalories;
     }
@@ -71,6 +98,10 @@ public class Recipe {
 
          } while (addMoreInstructions);
     }
+    
+    /** 
+     * @return ArrayList<String>
+     */
     //this method returns the recipe instructions
     public ArrayList<String> getRecipeInstructions() {
         return this.recipeInstructions;
@@ -116,6 +147,10 @@ public class Recipe {
     }
     }
     
+    
+    /** 
+     * @return Recipe
+     */
     //this is the method that will be accessed from RecipeBox to create a recipe
     public static Recipe createNewRecipe() {
         double totalRecipeCalories = 0;
